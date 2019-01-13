@@ -24,7 +24,7 @@
         <form>
             <input id="name" type="text" placeholder="Name" /> <br />
             <input id="surname" type="text" placeholder="Surname" /><br />
-            <select id="gender">
+            <button type="button" onclick=addPerson()>Add</button><!-- przycisk -->
                 <option value="Male" id="male">Male</option>
                 <option value="Female" id="female">Female</option>
             </select><br />
@@ -35,7 +35,6 @@
     </section>
 
     <section class="form">
-
         <table>
             <thead>
                 <tr>
@@ -52,15 +51,7 @@
             </tbody>
         </table>
         <!-- lista z osobami -->
-
-        <select>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="All">All</option>
-        </select>
     </section>
-
 </body>
 
 </html>
