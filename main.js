@@ -11,7 +11,7 @@ window.onload = () => {
     if (previousTable != null) {
         allPersons = JSON.parse(previousTable);
     }
-    generateList(allPersons);
+    generateList(allPersons, 5, 0);
 
     $('body').keypress(function (event) {
         if (event.keyCode == 13) {
@@ -48,19 +48,22 @@ function addPerson() {
 
     allPersons.push(person);
 
-    generateList(allPersons);
+    generateList(allPersons, 5, 0);
     addToLocalstorage();
 
     newName.val('');
     newSurname.val('');
 }
 
-function generateList(tab) {
+function generateList(tab, counter, startIndex) {
+
     $('#tbody').html('');
-    for (let i = 0; i < tab.length; i++) {
+    for (let i = startIndex; i < counter + startIndex && i < tab.length; i++) {
         var $tr = $('<tr><td>' + tab[i].name + '</td><td>' + tab[i].surname + '</td><td>' + +'</td></tr>');
         $('#tbody').append($tr);
-    }
+    };
+
+    
 }
 
 
