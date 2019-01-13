@@ -16,7 +16,7 @@ window.onload = () => {
         };
     });
 
-    $('select').change(function () {
+    $('#paginationNumber').change(function () {
         var value = ($(this).val());
         if (value == 'All') {
             count = allPersons.length;
