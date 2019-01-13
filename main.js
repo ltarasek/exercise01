@@ -1,19 +1,29 @@
 const STORAGE_KEY = 'tableWithPerson';
 
 var allPersons = [];
-
+var count = 10;
 
 window.onload = () => {
     var previousTable = localStorage.getItem(STORAGE_KEY);
     if (previousTable != null) {
         allPersons = JSON.parse(previousTable);
     }
-    generateList(allPersons, 500, 0);
+    generateList(allPersons, count, 0);
 
     $('body').keypress(function (event) {
         if (event.keyCode == 13) {
             addPerson();
         };
+    });
+
+    $('select').change(function () {
+        var value = ($(this).val());
+        if (value == 'All') {
+            count = allPersons.length;
+        } else {
+            count = Number.parseInt(value);
+        }
+        generateList(allPersons, count, 0);
     });
 }
 
@@ -63,7 +73,7 @@ function addPerson() {
 
     allPersons.push(person);
 
-    generateList(allPersons, 500, 0);
+    generateList(allPersons, count, 0);
     addToLocalstorage();
 
     newName.val('');
@@ -79,9 +89,8 @@ function generateList(tab, counter, startIndex) {
         var $tr = `<tr><td>${tab[i].name}</td><td>${tab[i].surname}</td><td>${tab[i].gender}</td><td>${tab[i].phoneNumber}</td><td>${tab[i].email}</td><td>${tab[i].currentData}</td></tr>`;
         $('#tbody').append($tr);
     };
-
-    
 }
+
 
 
 
