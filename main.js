@@ -9,6 +9,7 @@ window.onload = () => {
         allPersons = JSON.parse(previousTable);
     }
     generateList(allPersons, count, 0);
+    generatePaginationButtons(allPersons, count);
 
     $('body').keypress(function (event) {
         if (event.keyCode == 13) {
@@ -24,6 +25,7 @@ window.onload = () => {
             count = Number.parseInt(value);
         }
         generateList(allPersons, count, 0);
+        generatePaginationButtons(allPersons, count);
     });
 }
 
@@ -74,6 +76,7 @@ function addPerson() {
     allPersons.push(person);
 
     generateList(allPersons, count, 0);
+    generatePaginationButtons(allPersons, count);
     addToLocalstorage();
 
     newName.val('');
@@ -89,6 +92,19 @@ function generateList(tab, counter, startIndex) {
         var $tr = `<tr><td>${tab[i].name}</td><td>${tab[i].surname}</td><td>${tab[i].gender}</td><td>${tab[i].phoneNumber}</td><td>${tab[i].email}</td><td>${tab[i].currentData}</td></tr>`;
         $('#tbody').append($tr);
     };
+}
+
+function generatePaginationButtons(tab, counter) {
+    $('#paginationPages').html('');
+    var numbersOfPages = Math.ceil(tab.length / counter);
+    for (let i = 0; i < numbersOfPages; i++) {
+        var $button = $('<button>' + (i + 1) + '</button>');
+        $button.on('click', function () {
+            generateList(tab, count, i * counter)
+        });
+
+        $('#paginationPages').append($button);
+    }
 }
 
 
