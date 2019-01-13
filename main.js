@@ -4,10 +4,17 @@ var allPersons = [{
 }];
 
 window.onload = () => {
-    
+
+    addToLocalstorage();
+
     generateList(allPersons);
 }
 
+function addToLocalstorage() {
+    var JsonAllPerson = JSON.stringify(allPersons);
+    localStorage.setItem("tablicaZosobami", JsonAllPerson);
+    console.log(JsonAllPerson);
+}
 function add() {
 
     var newName = $('input#name');
@@ -23,6 +30,7 @@ function add() {
     allPersons.push(person);
 
     generateList(allPersons);
+    addToLocalstorage();
 
     newName.val('');
     newSurname.val('');
