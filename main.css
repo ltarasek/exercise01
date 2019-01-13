@@ -45,18 +45,19 @@ form{
     width: 100%;
 }
 
-input {
+input, #gender {
     align-items:center;
     justify-content:center;
     width: 32%;
     height: 20px;
+    margin: 10px;
 }
 
 button{
-    width: 30%;
+    width: 33%;
     text-align: center;
     font-size: 1rem;
-    align-self: center;
+    align-items:center;
     background-color: orange;
     border: none;
     padding: 3.5px;
@@ -64,6 +65,7 @@ button{
     font-weight: bold;
     text-shadow: 5px 5px 7px #000000;
     text-decoration: none;
+    margin: 10px;
 }
 
 table, form{

@@ -1,9 +1,6 @@
 const STORAGE_KEY = 'tableWithPerson';
 
-var allPersons = [{
-    name: "Magda",
-    surname: "Surzynska"
-}];
+var allPersons = [];
 
 window.onload = () => {
     var previousTable = localStorage.getItem(STORAGE_KEY);
@@ -41,7 +38,7 @@ function add() {
 function generateList(tab) {
     $('#tbody').html('');
     for (let i = 0; i < tab.length; i++) {
-        var $tr = $('<tr><td>' + tab[i].name + '</td><td>' + tab[i].surname + '</td><td>' + +'</td></tr>' );
+        var $tr = `<tr><td>${tab[i].name}</td><td>${tab[i].surname}</td><td>${tab[i].gender}</td></tr>' )`;
         $('#tbody').append($tr);
     }
 }

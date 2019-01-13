@@ -22,9 +22,15 @@
 
     <section class="form">
         <form>
-            <input id="name" type="text" /> <!-- imie -->
-            <input id="surname" type="text" /><!-- nazwisko -->
-            <button type="button" onclick=add()>Add</button><!-- przycisk -->
+            <input id="name" type="text" placeholder="Name" /> <br />
+            <input id="surname" type="text" placeholder="Surname" /><br />
+            <select id="gender">
+                <option value="Malefemale">Male</option>
+                <option value="saab">Female</option>
+            </select><br />
+            <input id="phoneNumber" type="tel" placeholder="Phone Number" /><br />
+            <input id="email" type="email" placeholder="Email addres" /><br />
+            <button type="button" onclick=add()>Add</button>
         </form>
     </section>
 
@@ -34,7 +40,10 @@
                 <tr>
                     <th>Name</th>
                     <th>Surname</th>
-                    <th>Data założenia</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Email address</th>
+                    <th>Creation date</th>
                 </tr>
             </thead>
             <tbody id="tbody">
