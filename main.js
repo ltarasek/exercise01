@@ -1,22 +1,24 @@
+const STORAGE_KEY = 'tableWithPerson';
+
 var allPersons = [{
     name: "Magda",
     surname: "Surzynska"
 }];
 
 window.onload = () => {
-
-    addToLocalstorage();
-
+    var previousTable = localStorage.getItem(STORAGE_KEY);
+    if (previousTable != null) {
+        allPersons = JSON.parse(previousTable);
+    }
     generateList(allPersons);
 }
 
 function addToLocalstorage() {
     var JsonAllPerson = JSON.stringify(allPersons);
-    localStorage.setItem("tablicaZosobami", JsonAllPerson);
-    console.log(JsonAllPerson);
+    localStorage.setItem(STORAGE_KEY, JsonAllPerson);
 }
-function add() {
 
+function add() {
     var newName = $('input#name');
     var name = newName.val();
 
@@ -34,7 +36,6 @@ function add() {
 
     newName.val('');
     newSurname.val('');
-
 }
 
 function generateList(tab) {
