@@ -5,12 +5,19 @@ var allPersons = [{
     surname: "Surzynska"
 }];
 
+
 window.onload = () => {
     var previousTable = localStorage.getItem(STORAGE_KEY);
     if (previousTable != null) {
         allPersons = JSON.parse(previousTable);
     }
     generateList(allPersons);
+
+    $('body').keypress(function (event) {
+        if (event.keyCode == 13) {
+            addPerson();
+        };
+    });
 }
 
 function addToLocalstorage() {
@@ -18,7 +25,7 @@ function addToLocalstorage() {
     localStorage.setItem(STORAGE_KEY, JsonAllPerson);
 }
 
-function add() {
+function addPerson() {
     var newName = $('input#name');
     var name = newName.val();
 
@@ -29,6 +36,16 @@ function add() {
         name: name,
         surname: surname
     }
+
+    var findUser = allPersons.find(function (element) {
+        return element.name == name && element.surname == surname;
+    });
+
+    if (findUser != undefined) {
+        alert("This person already exist");
+        return;
+    }
+
     allPersons.push(person);
 
     generateList(allPersons);
@@ -41,8 +58,11 @@ function add() {
 function generateList(tab) {
     $('#tbody').html('');
     for (let i = 0; i < tab.length; i++) {
-        var $tr = $('<tr><td>' + tab[i].name + '</td><td>' + tab[i].surname + '</td><td>' + +'</td></tr>' );
+        var $tr = $('<tr><td>' + tab[i].name + '</td><td>' + tab[i].surname + '</td><td>' + +'</td></tr>');
         $('#tbody').append($tr);
     }
 }
+
+
+
 
