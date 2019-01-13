@@ -9,21 +9,32 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="./jquery-3.3.1.min.js"></script>
     <script src="main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Lato|Sigmar+One" rel="stylesheet" />
 </head>
 
 <body>
-    <form>
-        <input id="name" type="text" /> <!-- imie -->
-        <input id="surname" type="text" /><!-- nazwisko -->
-        <button type="button" onclick=add()>Add</button><!-- przycisk -->
-    </form>
+    <header>
+        <div id="logo">
+            <h1>NUD</h1>
+            <p>new users database</p>
+        </div>
+    </header>
 
-    <section>
+    <section class="form">
+        <form>
+            <input id="name" type="text" /> <!-- imie -->
+            <input id="surname" type="text" /><!-- nazwisko -->
+            <button type="button" onclick=add()>Add</button><!-- przycisk -->
+        </form>
+    </section>
+
+    <section class="form">
         <table>
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Surname</th>
+                    <th>Data założenia</th>
                 </tr>
             </thead>
             <tbody id="tbody">

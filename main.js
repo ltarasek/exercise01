@@ -41,7 +41,7 @@ function add() {
 function generateList(tab) {
     $('#tbody').html('');
     for (let i = 0; i < tab.length; i++) {
-        var $tr = $('<tr><td>' + tab[i].name + '</td><td>' + tab[i].surname + '</td></tr>');
+        var $tr = $('<tr><td>' + tab[i].name + '</td><td>' + tab[i].surname + '</td><td>' + +'</td></tr>' );
         $('#tbody').append($tr);
     }
 }
