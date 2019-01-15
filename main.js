@@ -64,6 +64,12 @@ function addPerson() {
         currentData: currentData
     }
 
+    var isValid = formValidate();
+
+    if (!isValid) {
+        return;
+    }
+
     var findUser = allPersons.find(function (element) {
         return element.name == name && element.surname == surname;
     });
@@ -105,6 +111,54 @@ function generatePaginationButtons(tab, counter) {
 
         $('#paginationPages').append($button);
     }
+}
+
+
+function formValidate() {
+    var isValid = true;
+
+    var name = $('#name').val();
+    if (name == '') {
+        alert('Name must be filled out');
+        isValid = false;
+    }
+
+    var surname = $('#surname').val();
+    if (surname == '') {
+        alert('Surname must be filled out');
+        isValid = false;
+    }
+
+    var gender = $('#gender');
+    if (gender.val() == 'default') {
+        alert('Please select your gender');
+        isValid = false;
+    }
+
+    var phoneNumber = $('#phoneNumber').val();
+    if (phoneNumber == '') {
+        alert('Please enter your telephone number');
+        isValid = false;
+    }
+
+    var email = $('#email').val();
+    if (email == '') {
+        alert('Please enter your email');
+        isValid = false;
+    }
+    if (email !== '') {
+        if (email.indexOf('@', 0) < 0) {
+            alert('Incorrect email');
+            isValid = false;
+        }
+
+        if (email.indexOf('.', 0) < 0) {
+            alert('Incorrect email');
+            isValid = false;
+        }
+    }
+
+    return isValid;
 }
 
 
