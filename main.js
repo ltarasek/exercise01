@@ -11,10 +11,28 @@ window.onload = () => {
     generateList(allPersons, count, 0);
     generatePaginationButtons(allPersons, count);
 
-    $('body').keypress(function (event) {
-        if (event.keyCode == 13) {
-            addPerson();
-        };
+//array sort opption
+    $(".sortButtons").click(function () {
+        var sortParameter = $(this).val();
+
+       
+        var newArray = allPersons.sort(function (a, b) {
+
+            var keyA = a[sortParameter].toUpperCase();
+            var keyB = b[sortParameter].toUpperCase();
+
+            if (keyA < keyB) {
+                return -1;
+            }
+            if (keyA > keyB) {
+                return 1;
+            }
+            return 0;
+
+        });
+
+        generateList(newArray, count, 0);
+
     });
 
     $('#paginationNumber').change(function () {
@@ -89,6 +107,8 @@ function addPerson() {
     newSurname.val('');
     newPhoneNumber.val('');
     newEmail.val('');
+
+
 }
 
 function generateList(tab, counter, startIndex) {

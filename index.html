@@ -31,7 +31,7 @@
             </select><br />
             <input id="phoneNumber" type="number" placeholder="Phone Number" /><br />
             <input id="email" type="email" placeholder="Email addres" /><br />
-            <button type="button" onclick=addPerson()>Add</button>
+            <button type="button" onclick="addPerson();">Add</button>
         </form>
     </section>
 
@@ -40,12 +40,24 @@
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>Gender</th>
-                    <th>Phone Number</th>
-                    <th>Email address</th>
-                    <th>Creation date</th>
+                    <th>
+                        <button class="sortButtons" value="name">Name</button>
+                    </th>
+                    <th>
+                        <button class="sortButtons" value="surname">Surname</button>
+                    </th>
+                    <th>
+                        <button class="sortButtons" value="gender">Gender</button>
+                    </th>
+                    <th>
+                        <button class="sortButtons" value="phoneNumber">Phone Number</button>
+                    </th>
+                    <th>
+                        <button class="sortButtons" value="email">Email address</button>
+                    </th>
+                    <th>
+                        <button class="sortButtons" value="currentData">Creation date</button>
+                    </th>
                 </tr>
             </thead>
             <tbody id="tbody">
@@ -63,7 +75,7 @@
 
         <div id="paginationPages"></div>
     </section>
-
+</div>
 </body>
 
 </html>
