@@ -43,6 +43,7 @@ h1, p
 
 form{
     width: 100%;
+    
 }
 
 input, #gender {
@@ -81,10 +82,7 @@ table, thead, th, td, tr {
     text-align: center;
 }
 
-<<<<<<< HEAD
 .sortButtons{
     width: auto;
 }
-=======
 
->>>>>>> origin/master

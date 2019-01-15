@@ -8,13 +8,8 @@ window.onload = () => {
     if (previousTable != null) {
         allPersons = JSON.parse(previousTable);
     }
-<<<<<<< HEAD
-
-    generateList(allPersons);
-=======
     generateList(allPersons, count, 0);
     generatePaginationButtons(allPersons, count);
->>>>>>> origin/master
 
 //array sort opption
     $(".sortButtons").click(function () {
@@ -36,12 +31,10 @@ window.onload = () => {
 
         });
 
-        generateList(newArray.reverse());
+        generateList(newArray, count, 0);
 
     });
 
-<<<<<<< HEAD
-=======
     $('#paginationNumber').change(function () {
         var value = ($(this).val());
         if (value == 'All') {
@@ -52,7 +45,6 @@ window.onload = () => {
         generateList(allPersons, count, 0);
         generatePaginationButtons(allPersons, count);
     });
->>>>>>> origin/master
 }
 
 function addToLocalstorage() {
@@ -106,13 +98,9 @@ function addPerson() {
     }
 
     allPersons.push(person);
-<<<<<<< HEAD
-    generateList(allPersons);
-=======
 
     generateList(allPersons, count, 0);
     generatePaginationButtons(allPersons, count);
->>>>>>> origin/master
     addToLocalstorage();
 
     newName.val('');
@@ -146,8 +134,6 @@ function generatePaginationButtons(tab, counter) {
 }
 
 
-<<<<<<< HEAD
-=======
 function formValidate() {
     var isValid = true;
 
@@ -199,4 +185,3 @@ function formValidate() {
 
 
 
->>>>>>> origin/master
