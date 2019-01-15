@@ -54,7 +54,7 @@ input, #gender {
 }
 
 button{
-    width: 33%;
+    width: 30%;
     text-align: center;
     font-size: 1rem;
     align-items:center;
@@ -73,8 +73,14 @@ table, form{
     margin: 50px;
 }
 
+
 table, thead, th, td, tr {
-    border: 1px solid black;
-    padding: 5px;
+    border-collapse: collapse;
+    border: 2px solid rgb(173, 51, 51);
+    padding: 10px;
+    text-align: center;
 }
 
+.sortButtons{
+    width: auto;
+}
