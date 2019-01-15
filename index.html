@@ -24,17 +24,19 @@
         <form>
             <input id="name" type="text" placeholder="Name" /> <br />
             <input id="surname" type="text" placeholder="Surname" /><br />
-            <select id="gender">
+            <select id="gender" required>
+                <option selected value="default" id="chooseGender">Choose gender</option>
                 <option value="Male" id="male">Male</option>
                 <option value="Female" id="female">Female</option>
             </select><br />
-            <input id="phoneNumber" type="tel" placeholder="Phone Number" /><br />
+            <input id="phoneNumber" type="number" placeholder="Phone Number" /><br />
             <input id="email" type="email" placeholder="Email addres" /><br />
             <button type="button" onclick="addPerson();">Add</button>
         </form>
     </section>
 
     <section class="form">
+
         <table>
             <thead>
                 <tr>
@@ -62,6 +64,20 @@
 
             </tbody>
         </table>
+<<<<<<< HEAD
+=======
+        <!-- lista z osobami -->
+
+        <select id="paginationNumber">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="All">All</option>
+        </select>
+
+        <div id="paginationPages"></div>
+    </section>
+>>>>>>> origin/master
 
 </body>
 

@@ -1,15 +1,20 @@
 const STORAGE_KEY = 'tableWithPerson';
 
 var allPersons = [];
-
+var count = 10;
 
 window.onload = () => {
     var previousTable = localStorage.getItem(STORAGE_KEY);
     if (previousTable != null) {
         allPersons = JSON.parse(previousTable);
     }
+<<<<<<< HEAD
 
     generateList(allPersons);
+=======
+    generateList(allPersons, count, 0);
+    generatePaginationButtons(allPersons, count);
+>>>>>>> origin/master
 
 //array sort opption
     $(".sortButtons").click(function () {
@@ -35,6 +40,19 @@ window.onload = () => {
 
     });
 
+<<<<<<< HEAD
+=======
+    $('#paginationNumber').change(function () {
+        var value = ($(this).val());
+        if (value == 'All') {
+            count = allPersons.length;
+        } else {
+            count = Number.parseInt(value);
+        }
+        generateList(allPersons, count, 0);
+        generatePaginationButtons(allPersons, count);
+    });
+>>>>>>> origin/master
 }
 
 function addToLocalstorage() {
@@ -72,6 +90,12 @@ function addPerson() {
         currentData: currentData
     }
 
+    var isValid = formValidate();
+
+    if (!isValid) {
+        return;
+    }
+
     var findUser = allPersons.find(function (element) {
         return element.name == name && element.surname == surname;
     });
@@ -82,7 +106,13 @@ function addPerson() {
     }
 
     allPersons.push(person);
+<<<<<<< HEAD
     generateList(allPersons);
+=======
+
+    generateList(allPersons, count, 0);
+    generatePaginationButtons(allPersons, count);
+>>>>>>> origin/master
     addToLocalstorage();
 
     newName.val('');
@@ -93,12 +123,80 @@ function addPerson() {
 
 }
 
-function generateList(tab) {
+function generateList(tab, counter, startIndex) {
+
     $('#tbody').html('');
-    for (let i = 0; i < tab.length; i++) {
+    for (let i = startIndex; i < counter + startIndex && i < tab.length; i++) {
         var $tr = `<tr><td>${tab[i].name}</td><td>${tab[i].surname}</td><td>${tab[i].gender}</td><td>${tab[i].phoneNumber}</td><td>${tab[i].email}</td><td>${tab[i].currentData}</td></tr>`;
         $('#tbody').append($tr);
+    };
+}
+
+function generatePaginationButtons(tab, counter) {
+    $('#paginationPages').html('');
+    var numbersOfPages = Math.ceil(tab.length / counter);
+    for (let i = 0; i < numbersOfPages; i++) {
+        var $button = $('<button>' + (i + 1) + '</button>');
+        $button.on('click', function () {
+            generateList(tab, count, i * counter)
+        });
+
+        $('#paginationPages').append($button);
     }
 }
 
 
+<<<<<<< HEAD
+=======
+function formValidate() {
+    var isValid = true;
+
+    var name = $('#name').val();
+    if (name == '') {
+        alert('Name must be filled out');
+        isValid = false;
+    }
+
+    var surname = $('#surname').val();
+    if (surname == '') {
+        alert('Surname must be filled out');
+        isValid = false;
+    }
+
+    var gender = $('#gender');
+    if (gender.val() == 'default') {
+        alert('Please select your gender');
+        isValid = false;
+    }
+
+    var phoneNumber = $('#phoneNumber').val();
+    if (phoneNumber == '') {
+        alert('Please enter your telephone number');
+        isValid = false;
+    }
+
+    var email = $('#email').val();
+    if (email == '') {
+        alert('Please enter your email');
+        isValid = false;
+    }
+    if (email !== '') {
+        if (email.indexOf('@', 0) < 0) {
+            alert('Incorrect email');
+            isValid = false;
+        }
+
+        if (email.indexOf('.', 0) < 0) {
+            alert('Incorrect email');
+            isValid = false;
+        }
+    }
+
+    return isValid;
+}
+
+
+
+
+
+>>>>>>> origin/master
